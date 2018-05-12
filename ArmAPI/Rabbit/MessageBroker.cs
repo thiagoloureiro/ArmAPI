@@ -7,67 +7,41 @@ namespace ArmAPI.Rabbit
 {
     public class MessageBroker
     {
-        private ConnectionFactory factory;
-        private IConnection connection;
-        private IModel channel;
+        private ConnectionFactory _factory;
+        private IConnection _connection;
+        private IModel _channel;
+
         public string QueueName { get; set; }
 
         public void Connect()
         {
-            factory = new ConnectionFactory() { HostName = "hound.rmq.cloudamqp.com", VirtualHost = "usldnewk", UserName = "usldnewk", Password = "urWrV6UeRu5vGgk8k7YJaqVwFCJyPSHc" };
+            _factory = new ConnectionFactory() { HostName = "hound.rmq.cloudamqp.com", VirtualHost = "usldnewk", UserName = "usldnewk", Password = "-" };
 
-            connection = factory.CreateConnection();
-            // connection.ConnectionShutdown += Connection_ConnectionShutdown;
+            _connection = _factory.CreateConnection();
 
-            channel = connection.CreateModel();
-            channel.QueueDeclare(QueueName, true, false, false, null);
+            _channel = _connection.CreateModel();
+            _channel.QueueDeclare(QueueName, true, false, false, null);
         }
-
-        //private void Connection_ConnectionShutdown(object sender, ShutdownEventArgs e)
-        //{
-        //    Console.WriteLine("Connection broke!");
-
-        //    Cleanup();
-
-        //    while (true)
-        //    {
-        //        try
-        //        {
-        //            Connect();
-
-        //            Console.WriteLine("Reconnected!");
-        //            break;
-        //        }
-        //        catch (Exception ex)
-        //        {
-        //            Console.WriteLine($"Reconnect failed! {ex.Message}");
-        //            Thread.Sleep(3000);
-        //        }
-        //    }
-        //}
 
         private void Cleanup()
         {
             try
             {
-                if (channel != null && channel.IsOpen)
+                if (_channel != null && _channel.IsOpen)
                 {
-                    channel.Close();
-                    channel = null;
+                    _channel.Close();
+                    _channel = null;
                 }
 
-                if (connection != null && connection.IsOpen)
+                if (_connection != null && _connection.IsOpen)
                 {
-                    connection.Close();
-                    connection = null;
+                    _connection.Close();
+                    _connection = null;
                 }
             }
             catch (IOException ex)
             {
                 Console.WriteLine($"Cleanup failed! {ex.Message}");
-
-                // Close() may throw an IOException if connection
-                // dies - but that's ok (handled by reconnect)
             }
         }
 
@@ -77,7 +51,7 @@ namespace ArmAPI.Rabbit
             {
                 QueueName = queueName;
                 Connect();
-                channel.BasicPublish(string.Empty, queueName, null, Encoding.ASCII.GetBytes(message));
+                _channel.BasicPublish(string.Empty, queueName, null, Encoding.ASCII.GetBytes(message));
             }
             catch (Exception e)
             {

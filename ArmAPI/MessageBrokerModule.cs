@@ -10,7 +10,7 @@ namespace ArmAPI
     {
         public MessageBrokerModule()
         {
-            Get("/", args => "OK");
+            Get("/", args => "Service Status OK");
 
             Post("/", args =>
             {
