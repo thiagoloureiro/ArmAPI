@@ -7,6 +7,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ArmAPI", "ArmAPI\ArmAPI.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArmAPI.Test", "ArmAPI.Test\ArmAPI.Test.csproj", "{F00D9CE5-CE10-4645-BEA5-ADD0F3E93906}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArmAPI.Model", "ArmAPI.Model\ArmAPI.Model.csproj", "{D19EBB85-B624-485C-BCA1-CCFF4485A480}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArmAPI.RabbitMQ", "ArmAPI.RabbitMQ\ArmAPI.RabbitMQ.csproj", "{DED034CB-8A8A-40B6-A305-37605866C738}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{F00D9CE5-CE10-4645-BEA5-ADD0F3E93906}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F00D9CE5-CE10-4645-BEA5-ADD0F3E93906}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F00D9CE5-CE10-4645-BEA5-ADD0F3E93906}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D19EBB85-B624-485C-BCA1-CCFF4485A480}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D19EBB85-B624-485C-BCA1-CCFF4485A480}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D19EBB85-B624-485C-BCA1-CCFF4485A480}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D19EBB85-B624-485C-BCA1-CCFF4485A480}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DED034CB-8A8A-40B6-A305-37605866C738}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DED034CB-8A8A-40B6-A305-37605866C738}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DED034CB-8A8A-40B6-A305-37605866C738}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DED034CB-8A8A-40B6-A305-37605866C738}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

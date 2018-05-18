@@ -13,7 +13,11 @@
     <PackageReference Include="Microsoft.AspNetCore.Server.Kestrel" Version="2.0.3" />
     <PackageReference Include="Nancy" Version="2.0.0-clinteastwood" />
     <PackageReference Include="Nancy.Validation.FluentValidation" Version="2.0.0-clinteastwood" />
-    <PackageReference Include="RabbitMQ.Client" Version="5.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ArmAPI.Model\ArmAPI.Model.csproj" />
+    <ProjectReference Include="..\ArmAPI.RabbitMQ\ArmAPI.RabbitMQ.csproj" />
   </ItemGroup>
 
 </Project>
