@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Hosting;
+﻿using System;
+using Microsoft.AspNetCore.Hosting;
 using System.IO;
 
 namespace ArmAPI
@@ -7,15 +8,22 @@ namespace ArmAPI
     {
         private static void Main(string[] args)
         {
-            var host = new WebHostBuilder()
-                .UseContentRoot(Directory.GetCurrentDirectory())
-                .UseKestrel()
-                .UseStartup<Startup>()
-                .UseUrls("http://+:88")
+            try
+            {
+                var host = new WebHostBuilder()
+                    .UseContentRoot(Directory.GetCurrentDirectory())
+                    .UseKestrel()
+                    .UseStartup<Startup>()
+                    .UseUrls("http://+:88")
 
-                .Build();
+                    .Build();
 
-            host.Run();
+                host.Run();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
         }
     }
 }
